@@ -139,9 +139,22 @@ if (suites.TryGetValue(tipoSuite, out Suite _))
         Console.WriteLine(
             $"Alocada a suite {suiteSelecionada.TipoSuite}, com valor diária de {suiteSelecionada.ValorDiaria}.\n"
         );
-        Console.WriteLine(
-            $"O valor final da reserva com {reserva.DiasReservados} dias reservados é: {valorFinal:G}"
-        );
+        
+        if (reserva.DiasReservados >= 10)
+        {
+            Console.WriteLine(
+                "Parabéns! Por ter reservado por 10 dias ou mais, foi aplicado um desconto de 10%!\n"
+            );
+            Console.WriteLine(
+                $"O valor final da reserva com {reserva.DiasReservados} dias reservados é: {valorFinal:G}"
+            );
+        }
+        else
+        {
+            Console.WriteLine(
+                $"O valor final da reserva com {reserva.DiasReservados} dias reservados é: {valorFinal:G}"
+            );
+        }
     }
     else // Caso a capacidade da suite seja menor que a quantidade de hóspedes cadastrados
     {
